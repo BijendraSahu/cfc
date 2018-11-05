@@ -1,0 +1,17 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+
+
+ALTER TABLE `registrations` CHANGE `F1` `type` VARCHAR(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
+ALTER TABLE `registrations` CHANGE `F2` `total_amount` FLOAT NULL DEFAULT NULL;
+ALTER TABLE `registrations` CHANGE `F3` `Paymode` VARCHAR(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
