@@ -57,7 +57,8 @@ class Tbl_TableController extends Controller
     public function edit($id)
     {
         $cate = Tbl_Table::find($id);
-        return view('TableCreation.edit_table')->with(['Tbl_Table' => $cate]);
+        $table_cat = TableCategory::gettableCategory();
+        return view('TableCreation.edit_table')->with(['Tbl_Table' => $cate, 'table_cat' => $table_cat]);
     }
 
     public function update($id, Request $request)

@@ -37,6 +37,7 @@ Route::GET('change_password', function () {
 Route::POST('reset_password', 'LoginMasterController@reset_password');
 Route::GET('user_master/{id}/resetPassword', 'LoginMasterController@reset');
 Route::POST('change_password', 'LoginMasterController@change_password');
+Route::post('login_user', 'LoginMasterController@store');
 Route::GET('dashboard', 'LoginMasterController@login_user');
 
 /***********************Custom Route********************************/
@@ -59,6 +60,8 @@ Route::resource('registration', 'RegistrationController');
 Route::resource('stock', 'StockController');
 Route::resource('issue', 'IssueController');
 Route::resource('request_item', 'RequestController');
+
+Route::get('getSubCategory', 'Menu_ItemComtroller@getSubCategory');
 
 /****************************Crud Route******************************/
 

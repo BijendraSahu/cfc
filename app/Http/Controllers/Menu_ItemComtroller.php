@@ -21,9 +21,10 @@ class Menu_ItemComtroller extends Controller
 
     public function create()
     {
+        $mainecate = MenuCategory::where('Isdeleted', '0')->get(['McatID', 'CategoryName']);
         $cate = MenuSubCategory::getsubMenuDropdown();
         $percent = PercentModel::getPercentDropdown();
-        return view('MenuFiles.create_MenuItem')->with(['cate' => $cate, 'percent' => $percent]);
+        return view('MenuFiles.create_MenuItem')->with(['cate' => $cate, 'percent' => $percent, 'mainecate' => $mainecate]);
     }
 
     public function store(Request $request)
@@ -71,11 +72,24 @@ class Menu_ItemComtroller extends Controller
 
     public function edit($id)
     {
+        $mainecate = MenuCategory::where('Isdeleted', '0')->get(['McatID', 'CategoryName']);
         $cate = MenuSubCategory::getsubMenuDropdown();
         $percent = PercentModel::getPercentDropdown();
         $Menus = MenuItemModel::find($id);
-        return view('MenuFiles.edit_MenuItem')->with(['Menus' => $Menus, 'cate' => $cate, 'percent' => $percent]);
+        return view('MenuFiles.edit_MenuItem')->with(['Menus' => $Menus, 'cate' => $cate, 'percent' => $percent, 'mainecate' => $mainecate]);
     }
+
+    public function getSubCategory()
+    {
+        $menu_category_id = request('menu_category');
+        $Mcats = MenuSubCategory::where(['Isdeleted' => '0', 'category_id' => $menu_category_id])->get(['McatID', 'CategoryName']);
+        $arr[0] = "SELECT";
+        foreach ($Mcats as $Mcat) {
+            $arr[$Mcat->McatID] = $Mcat->CategoryName;
+        }
+        return view('MenuFiles.sub_category_list')->with(['arr' => $arr]);
+    }
+
 
     public function update($id, Request $request)
     {
@@ -87,7 +101,7 @@ class Menu_ItemComtroller extends Controller
         }
 
         $mit = MenuItemModel::find($id);
-        $mit->MCID = request('ddlcat');
+        $mit->MCID = request('ddlcat') != '0' ? request('ddlcat') : $mit->MCID;
         $mit->percent_id = request('percent_id');
         $mit->M_Name = request('name');
         $mit->Act_Price = request('actprice');

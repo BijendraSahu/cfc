@@ -60,7 +60,7 @@
         <div class="form-group">
             <hr/>
         </div>
-        {!! Form::open(['url' => 'home', 'class' => 'form-horizontal', 'id'=>'frmLogin']) !!}
+        {!! Form::open(['url' => 'login_user', 'class' => 'form-horizontal', 'id'=>'frmLogin']) !!}
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>

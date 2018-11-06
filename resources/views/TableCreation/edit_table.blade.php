@@ -4,17 +4,10 @@
     {!! Form::open(['url' => 'Tbl/'.$Tbl_Table->Tid, 'class' => 'form-horizontal', 'id'=>'Tbl_', 'method'=>'put', 'files'=>true]) !!}
     <div class="container-fluid">
         <div class="col-sm-12">
-            {{--<div class='form-group'>--}}
-            {{--{!! Form::label('user_no', 'Table No#', ['class' => 'col-sm-2 control-label']) !!}--}}
-            {{--<div class='col-sm-8'>--}}
-            {{--<p></p>--}}
-            {{--<label for="" class="badge">Tbl-{{$Tbl_Table->Tid}}</label>--}}
-            {{--</div>--}}
-            {{--</div>--}}
             <div class="form-group">
-                {!! Form::label('role', 'Category *', ['class' => 'col-sm-4 control-label']) !!}
+                {!! Form::label('role', 'Category *', ['class' => 'col-sm-2 control-label']) !!}
                 <div class='col-sm-8'>
-                    {!! Form::select('table_category_id', $Tbl_Table->table_category_id, null,['class' => 'form-control requiredDD']) !!}
+                    {!! Form::select('table_category_id', $table_cat, $Tbl_Table->table_category_id,['class' => 'form-control requiredDD']) !!}
                 </div>
             </div>
             <div class="form-group">

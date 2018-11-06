@@ -24,6 +24,7 @@
                 <tr class="bg-info">
                     <th class="hidden">Id</th>
                     <th class="options">Options</th>
+                    <th>Table Category</th>
                     <th>Table No</th>
                 </tr>
                 </thead>
@@ -36,16 +37,12 @@
                                 <a href="#" id="{{$Tbl_Table->Tid}}" class="btn btn-sm btn-default edit-unit_"
                                    title="Edit unit">
                                     <span class="fa fa-pencil"></span></a>
-                                {{--@if($_SESSION['user_master']->id != $user_master->id)--}}
-
                                 <button type="button" id="{{ $Tbl_Table->Tid }}"
                                         class="btn btn-sm btn-danger btnDelete" title="Inactivate"><span
                                             class="fa fa-trash-o" aria-hidden="true"></span></button>
-                                {{--@endif--}}
                             </td>
                             <td>{{$Tbl_Table->table_category->category}}</td>
                             <td>{{$Tbl_Table->TblNo}}</td>
-
                         </tr>
                     @endforeach
                 @endif
