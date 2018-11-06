@@ -37,9 +37,8 @@
         padding-top: 50px;
     }
     .loginlg{
-        width: 55%;
         height: 100%;
-        margin-top: 10px;
+        margin-top: -13px;
     }
 
 </style>
@@ -47,7 +46,7 @@
 
 <div id="login-form">
     <div class="imgcontainer">
-        <img src="{{url('assets/img/retinodeslogo.png')}}" alt="Avatar"
+        <img src="{{url('assets/img/cfc_logo.jpg')}}" alt="Avatar"
               class="center-block loginlg"/>
     </div>
 
